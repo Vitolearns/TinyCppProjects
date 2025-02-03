@@ -13,3 +13,12 @@ cc_binary(
     srcs = ["main.cpp"], 
     deps = [":my_shared_ptr"],
 )
+
+cc_test(
+    name = "my_shared_ptr_test",
+    srcs = ["test/my_shared_ptr_test.cc"],
+    deps = [
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",
+    ],
+)
