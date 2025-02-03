@@ -1,0 +1,9 @@
+# 忽略 Bazel 的构建输出目录
+bazel-bin/
+bazel-out/
+bazel-testlogs/
+bazel-TinyCppProjects/
+
+# 如果想忽略 Bazel 模块相关的文件，也可以取消下面的注释
+MODULE.bazel
+MODULE.bazel.lock 
