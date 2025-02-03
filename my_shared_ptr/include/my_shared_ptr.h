@@ -101,7 +101,21 @@ public:
   T* operator->() {
     return ptr_;
   }
+  
+  /**
+   * @brief Retrieves the current number of shared owners.
+   *
+   * Returns the reference count associated with the managed object, indicating how many
+   * MySharedPtr instances share ownership.
+   *
+   * @return The number of shared owners.
+   */
+  size_t use_count() const {
+    std::lock_guard<std::mutex> lock(*mutex_);
+    return *count_;
+  }
 
+private:
   /**
    * @brief Increments the reference count.
    *
@@ -138,21 +152,7 @@ public:
       delete mutex_;
     }
   }
-  
-  /**
-   * @brief Retrieves the current number of shared owners.
-   *
-   * Returns the reference count associated with the managed object, indicating how many
-   * MySharedPtr instances share ownership.
-   *
-   * @return The number of shared owners.
-   */
-  size_t use_count() const {
-    std::lock_guard<std::mutex> lock(*mutex_);
-    return *count_;
-  }
 
-private:
   T* ptr_;               ///< Pointer to the managed object.
   size_t* count_;        ///< Pointer to the reference count.
   std::mutex* mutex_;    ///< Pointer to the mutex used for thread-safe operations.
