@@ -1,9 +1,7 @@
 cc_library(
     name = "my_shared_ptr",
-    # 注意：这里将 my_shared_ptr.cc 作为实现文件
     srcs = ["src/my_shared_ptr.cc"],
     hdrs = ["include/my_shared_ptr.h"],
-    # 指定头文件所在的目录，便于后续 include
     includes = ["src", "include"],
     visibility = ["//visibility:public"],
 )

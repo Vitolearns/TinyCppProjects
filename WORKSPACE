@@ -1,1 +1,1 @@
-# WORKSPACE文件可以为空
+# WORKSPACE can be empty
