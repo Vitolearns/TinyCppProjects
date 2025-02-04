@@ -115,6 +115,15 @@ public:
     return *count_;
   }
 
+  /**
+   * @brief Retrieves the raw pointer to the managed object.
+   *
+   * @return A pointer to the managed object.
+   */
+  T* get() const {
+    return ptr_;
+  }
+
 private:
   /**
    * @brief Increments the reference count.
