@@ -124,6 +124,15 @@ public:
     return ptr_;
   }
 
+  /**
+   * @brief Checks if the managed object is non-null.
+   *
+   * @return true if the managed object is non-null, false otherwise.
+   */
+  explicit operator bool() const noexcept {
+    return ptr_ != nullptr;
+  } 
+
 private:
   /**
    * @brief Increments the reference count.
