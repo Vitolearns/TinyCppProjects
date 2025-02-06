@@ -8,7 +8,7 @@ cc_library(
 
 cc_binary(
     name = "my_shared_ptr_main",
-    srcs = ["main.cpp"], 
+    srcs = ["main.cc"], 
     deps = [":my_shared_ptr"],
 )
 
